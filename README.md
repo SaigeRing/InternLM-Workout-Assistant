@@ -3,7 +3,7 @@
 OpenXLab 体验地址：<https://openxlab.org.cn/apps/detail/Saige-Ring/InternLM-Workout-Assistant>
 
 ![图片](./img/logo.jpg)  
-身体倍儿棒健身顾问\形象由 [Microsoft Bing 图像创建器](https://www.bing.com/images/create/) 生成
+*(身体倍儿棒健身顾问形象由 [Microsoft Bing 图像创建器](https://www.bing.com/images/create/) 生成)*
 
 ## 简介
 在快节奏的现代生活中，保持健康的体魄和心态变得日益重要。我们尝试基于第一届“书生·浦语大模型实战营”大项目仓库，利用 InternLM/Xtuner/Langchain 等工具创建一位您的健身小助手，旨在通过高效、个性化的方法，为您的健康和健身之旅提供全方位支持。它不仅是一个工具，更是您的私人教练，营养顾问和健康管理伙伴。
