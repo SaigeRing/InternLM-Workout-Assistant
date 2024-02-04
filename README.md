@@ -1,6 +1,5 @@
 # InternLM-Workout-Assistant
 # 书生·浦语 身体倍儿棒健身顾问
-OpenXLab 体验地址：<https://openxlab.org.cn/apps/detail/Saige-Ring/InternLM-Workout-Assistant>
 
 ![图片](./img/logo.jpg)  
 *( 身体倍儿棒健身顾问形象由 [Microsoft Bing 图像创建器](https://www.bing.com/images/create/) 生成 )*
@@ -55,7 +54,7 @@ OpenXLab 体验地址：<https://openxlab.org.cn/apps/detail/Saige-Ring/InternLM
 ![图片](./img/Langchain_Output.png)
 
 ## OpenXLab 部署
-将 xtuner 微调后并接入 Langchain 的模型在 OpenXLab 上部署，启动失败却并未出现日志报错，推测可能是开发机显存不足出现OOM情况。
+将 xtuner 微调后并接入 Langchain 的模型在 OpenXLab 上部署，启动失败却并未出现日志报错，推测可能是开发机显存不足出现 OOM 情况。
 
 ![图片](./img/Xlab_Output.png)
 
