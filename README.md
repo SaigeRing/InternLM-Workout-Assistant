@@ -6,7 +6,7 @@ OpenXLab 体验地址：<https://openxlab.org.cn/apps/detail/Saige-Ring/InternLM
 *( 身体倍儿棒健身顾问形象由 [Microsoft Bing 图像创建器](https://www.bing.com/images/create/) 生成 )*
 
 ## 简介
-在快节奏的现代生活中，保持健康的体魄和心态变得日益重要。我们尝试基于第一届“书生·浦语大模型实战营”大项目仓库，利用 InternLM/Xtuner/Langchain 等工具创建一位您的健身小助手，旨在通过高效、个性化的方法，为您的健康和健身之旅提供全方位支持。它不仅是一个工具，更是您的私人教练，营养顾问和健康管理伙伴。
+在快节奏的现代生活中，保持健康的体魄和心态变得日益重要。我们尝试利用 InternLM/Xtuner/Langchain 等工具创建一位您的健身小助手，旨在通过高效、个性化的方法，为您的健康和健身之旅提供全方位支持。它不仅是一个工具，更是您的私人教练，营养顾问和健康管理伙伴。
 
 - 大语言基座模型 - [InternLM2-7b-chat](https://github.com/InternLM/InternLM)
 - 训练数据 - 健身相关中文书籍
@@ -34,17 +34,30 @@ OpenXLab 体验地址：<https://openxlab.org.cn/apps/detail/Saige-Ring/InternLM
 -  使用 xtuner0.1.13 训练，在 internlm2-chat-7b 上进行微调
 -  训练数据 《力量训练基础》对话版
 -  参考配置 [internlm2_chat_7b_qlora_oasst1_e3.py](https://github.com/InternLM/xtuner/blob/main/xtuner/configs/internlm/internlm2_chat_7b/internlm2_chat_7b_qlora_oasst1_e3.py)，用生成的对话数据进行微调。
+
+微调后模型配置 ： [internlm2_chat_7b_qlora_workout_e1.py](./config/internlm2_chat_7b_qlora_workout_e1.py)
 微调后模型对话表现：
 
 ![图片](./img/Xtuner_Output.png)
 
 ## RAG
+- 上一步微调后的模型 - [internlm2_chat_7b_qlora_workout_e1.py](./config/internlm2_chat_7b_qlora_workout_e1.py)
+- 训练数据 - [健身相关中文书籍](./data)
+- 词嵌入模型 - [bge-large-zh-1.5](https://huggingface.co/BAAI/bge-large-zh-v1.5)
+
+主要过程脚本：
+- 利用 bge-large-zh-1.5 构建向量数据库 ： [create_db.py](./config/create_db.py)
+- 微调后模型 internlm2_chat_7b_qlora_workout_e1.py 接入 LangChain ：[LLM.py](./config/LLM.py)
+- 部署 Web Demo :  [run_gradio.py](./configrun_gradio.py)
+
+接入 Langchain 后模型对话表现：
+
+![图片](./img/Langchain_Output.png)
 
 ## OpenXLab 部署
-仅需要 Fork 本仓库，然后在 OpenXLab 上创建一个新的项目，将 Fork 的仓库与新建的项目关联，即可在 OpenXLab 上部署 身体倍儿棒健身顾问。
-OpenXLab 体验地址：<https://openxlab.org.cn/apps/detail/Saige-Ring/InternLM-Workout-Assistant>
+将 xtuner 微调后并接入 Langchain 的模型在 OpenXLab 上部署，启动失败却并未出现日志报错，推测可能是开发机显存不足出现OOM情况。
 
-![图片](./img/OpenXLab_Output.png)
+![图片](./img/Xlab_Output.png)
 
 ## 参考
 `requirements.txt` 参考自 [Law_InternLM](https://github.com/Aitejiu/Law_InternLM/blob/main/requirements.txt)
